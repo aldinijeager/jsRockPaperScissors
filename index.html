@@ -53,8 +53,17 @@
 
         function playGame()
         {
-           let result = playRound(getPlayerChoice(), getComputerChoice());
-           console.log(result);
+            let playerScoreCount   = 0;
+            let computerScoreCount = 0;
+           for(let i=0; i<5;++i)
+           {
+                let result = playRound(getPlayerChoice(), getComputerChoice());
+                if(result == "You win") ++playerScoreCount;
+                else ++computerScoreCount;
+                console.log(`You ${playerScoreCount} : ${computerScoreCount} Computer`);
+
+                
+           }
         }
     </script>
 </body>
