@@ -59,7 +59,7 @@
            {
                 let result = playRound(getPlayerChoice(), getComputerChoice());
                 if(result == "You win") ++playerScoreCount;
-                else ++computerScoreCount;
+                if(result == "You lost") ++computerScoreCount;
                 console.log(`You ${playerScoreCount} : ${computerScoreCount} Computer`);
 
                 
