@@ -4,11 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="js/script.js"></script>
+    <script src="js/script.js" defer></script>
+    <link rel="stylesheet" href="style/style.css">
 </head>
 <body>
-    <button value="rock">ROCK</button>
-    <button value="paper">PAPER</button>
-    <button value="scissor">SCISSOR</button>
+    <div id="scoreBoard">Player 0  Computer 0</div>
+    <div class="center">
+        <div id="choiceBoard">Player   Computer </div>
+        <button value="rock" class="move">ROCK</button>
+        <button value="paper" class="move">PAPER</button>
+        <button value="scissors" class="move">SCISSOR</button>
+    </div>
+    <div id="winBoard"></div>
+    <button id="reset">Play Again?</button>
 </body>
 </html>

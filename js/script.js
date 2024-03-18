@@ -8,7 +8,8 @@ function getComputerChoice()
 
 function playRound(playersSelection, computersSelection)
 {
-    console.log(`Computer :${computersSelection} | Player :${playersSelection}`)
+    const choiceBoard = document.querySelector("#choiceBoard");
+    choiceBoard.textContent = `Computer :${computersSelection} | Player :${playersSelection}`;
     const WIN  = "You won";
     const LOSE = "You lost";
     const TIE  = "It's a tie";
@@ -33,3 +34,38 @@ function playRound(playersSelection, computersSelection)
         return TIE;
     }
 }
+
+const btn = document.querySelectorAll(".move");
+const scoreBoard = document.querySelector("#scoreBoard");
+const winBoard = document.querySelector("#winBoard");
+const reset = document.querySelector("#reset");
+
+let playerScore = 0;
+let computerScore = 0;
+
+btn.forEach((item) => {
+    item.addEventListener("click",() => {
+        let result = playRound(item.value,getComputerChoice());
+        if(result == "You won") ++playerScore;
+        if(result == "You lost") ++computerScore;
+        
+        scoreBoard.textContent = `Player ${playerScore}  Computer ${computerScore}`
+
+        if(playerScore == 5)
+        {
+            winBoard.textContent = "You won";
+        }
+        if(computerScore == 5)
+        {
+            winBoard.textContent = "You lost";
+        }
+    });
+});
+
+reset.addEventListener("click", () => 
+{
+    playerScore = 0;
+    computerScore = 0;
+    winBoard.textContent = "";
+    scoreBoard.textContent = "Player 0  Computer 0";
+})
